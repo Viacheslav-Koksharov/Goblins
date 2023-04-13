@@ -1,7 +1,14 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-text-fill-color: rgb(157, 202, 34);
+}
+
 body {
   position: relative;
-  margin: 0;
-  padding:0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -9,26 +16,26 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.form{
+/* Form registration */
+
+.form {
   position: absolute;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    width: 100%;
+  height: 100vh;
+  width: 100%;
   background-image: url("./img/bgi-reg.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.fieldset{
+.fieldset {
   margin:150px auto 0;
   padding: 50px 20px;
   width: 600px;
-  border: 5px solid rgb(189, 241, 46);
+  border: 5px solid rgb(157, 202, 34);
   border-radius: 10px;
 }
 
-.input__container{
+.input__container {
   display: flex;
   margin-bottom: 30px;
   justify-content: space-between;
@@ -36,50 +43,56 @@ body {
 
 }
 
-.legend{
+.legend {
   font-size: 36px;
   font-weight: 700;
-  color: rgb(189, 241, 46);
+  color: rgb(157, 202, 34);
 }
 
-.label{
-  margin-right: 20px;
+.label {
   font-size: 36px;
   font-weight: 700;
-  color: rgb(189, 241, 46);
+  color: rgb(157, 202, 34);
 }
 
-.input{
+.input {
   padding: 12px;
-  color: rgb(189, 241, 46);
+  color: rgb(157, 202, 34);
   font-size: 20px;
   font-weight: 700;
   outline: none;
-  border: 5px solid rgb(241, 245, 24);
+  border: 5px solid rgb(157, 202, 34);
   border-radius: 10px;
+
 }
 
-.button{
+.input:focus::placeholder {
+  color: transparent;
+}
+
+.button {
   display: block;
   margin: 0 auto;
   padding: 15px;
   font-size: 28px;
   font-weight: 700;
-  color: rgb(189, 241, 46);
+  color: rgb(220, 252, 41);
   background-color: darkgray;
   opacity: 0.7;
-  border: 5px solid rgb(241, 245, 24);
+  border: 5px solid rgb(157, 202, 34);
   border-radius: 10px;
   cursor: pointer;
 }
 
-.button:hover{
+.button:hover {
   color:rgb(182, 245, 8);
   background-color: rgb(97, 97, 97);
   opacity: 1;
 }
 
-.game-play{
+/* Game play */
+
+.game__play {
   position: absolute;
   margin: 0;
   padding: 0;
@@ -90,21 +103,8 @@ body {
   background-size: cover;
 }
 
-.enemy__container{
-  margin:80px auto 0;
-  width: 450px;
-  height:550px;
-  cursor: pointer;
-}
-
-.enemy__image{
-  width: 100%;
-  height: 100%;
-}
-
-.header{
+.header {
   display: flex;
-  align-content: center;
   justify-content: space-around;
   align-items: center;
   width: 100%;
@@ -115,4 +115,36 @@ body {
   border-bottom-right-radius: 20px;
   background-color: rgb(228, 223, 223);
   opacity: 0.7;
+}
+.span {
+  display: inline-block;
+  width:40px;
+}
+.enemy__container {
+  margin:200px auto 0;
+  width: 450px;
+  height:450px;
+  cursor: pointer;
+}
+
+.enemy__image {
+  width: 100%;
+}
+
+.congrats {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 400px;
+  margin: 150px auto 0;
+  padding: 15px;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: rgb(157, 202, 34);
+  background-color: rgb(95, 88, 88);
+  opacity: 0.7;
+  border: 5px solid rgb(157, 202, 34);
+  border-radius: 10px;
 }

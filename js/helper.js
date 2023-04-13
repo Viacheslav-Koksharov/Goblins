@@ -1,45 +1,72 @@
-export const createInput = (text, placeholder, type, name) => {
-    const container = document.createElement("div");
-    container.classList.add("input__container");
+export function createSingleEl(tagName, className = null) {
+    const element = document.createElement(tagName);
 
-    const label = document.createElement("label");
+    if (className) {
+        element.classList.add(className);
+    }
+    return element;
+}
+
+export function createTextEl(text, content = null, style = null) {
+    const element = document.createElement("p");
+    element.textContent = text;
+
+    if (content) {
+        const child = document.createElement("span");
+        child.textContent = content;
+        element.append(child);
+
+        if (style) {
+            child.classList.add(style);
+        }
+    }
+    return element;
+}
+
+export function createInputEl(text, placeholder, type, name) {
+    const container = createSingleEl("div", "input__container");
+    const label = createSingleEl("label", "label");
+    const input = createSingleEl("input", "input");
+
     label.textContent = text;
-    label.classList.add("label");
-
-    const input = document.createElement("input");
     input.placeholder = placeholder;
     input.type = type;
     input.name = name;
-    input.classList.add("input");
+
     container.append(label, input)
     return container;
 }
 
-export const createButton = (text, type, style) => {
-    const button = document.createElement("button");
+export function createButtonEl(text, type, style) {
+    const button = createSingleEl("button", style);
     button.textContent = text;
     button.type = type;
-    button.classList.add(style);
+
     return button;
 }
 
-export const createTextElement = (text, content, style) => {
-    const textHeader = document.createElement("p");
-    textHeader.textContent = text;
-    const textHeaderContent = document.createElement("span");
-    textHeaderContent.textContent = content;
-    textHeaderContent.classList.add(style);
-    textHeader.append(textHeaderContent)
-    return textHeader;
+export function createEnemyUnit(styleUnit, src, styleImage) {
+    const container = createSingleEl("div", styleUnit);
+    const image = createSingleEl("img", styleImage);
+    image.src = src;
+
+    container.append(image);
+    return container;
 }
 
-export const sreateEnemyUnit = (styleUnit, src, styleImage) => {
-    const enemyContainer = document.createElement('div');
-    enemyContainer.classList.add(styleUnit);
-    const enemyImage = document.createElement('img');
-    enemyImage.src = src;
-    enemyImage.classList.add(styleImage);
+export function startTimer() {
+    const start = Date.now()
+    localStorage.setItem('time', start);
+    return start
+}
 
-    enemyContainer.append(enemyImage);
-    return enemyContainer
+export function stopTimer() {
+    const startGame = localStorage.getItem('time');
+    const stop = Date.now();
+    const delta = stop - startGame;
+    const mins = Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+    const secs = Math.floor((delta % (1000 * 60)) / 1000).toString().padStart(2, '0');
+    const timer = `${mins} min ${secs}sec`;
+    localStorage.setItem('time', timer);
+    return timer
 }

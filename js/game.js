@@ -1,5 +1,5 @@
 import { createSingleEl, createTextEl, createEnemyUnit, stopTimer } from './helper.js';
-// import congrats from './winner.js'
+import createModal from './modal.js'
 import enemies from './enemies.json' assert {type: 'json'};
 
 export function playGame() {
@@ -30,6 +30,9 @@ export function playGame() {
             enemy.remove();
 
             if (index < enemies.length) {
+                const modal = createModal(index + 1)
+                container.append(modal);
+
                 enemy = createEnemy(container, index, getTotal);
                 health = enemies[index].hp;
                 totalLevel.firstElementChild.textContent = index + 1;
@@ -55,6 +58,7 @@ export function playGame() {
             return enemy;
         }
     }
+
     function createEndGame() {
         let time = localStorage.getItem('time');
         const congrats = createSingleEl('div', "congrats");
@@ -63,7 +67,6 @@ export function playGame() {
         const timeMessage = createTextEl('Your time: ', time);
         congratsMessage.textContent = 'You Win!';
         congrats.append(congratsMessage, scoreMessage, timeMessage)
-
         container.append(congrats);
     }
 

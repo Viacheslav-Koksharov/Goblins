@@ -28,7 +28,7 @@ body {
 }
 
 .fieldset {
-  margin:150px auto 0;
+  margin:80px auto 0;
   padding: 50px 20px;
   width: 600px;
   border: 5px solid rgb(157, 202, 34);
@@ -121,10 +121,10 @@ body {
   width:40px;
 }
 .enemy__container {
-  margin:200px auto 0;
+  margin:10px auto 0;
   width: 450px;
   height:450px;
-  cursor: pointer;
+  cursor: url("./img/fireball-png-46748-Windows.ico"),pointer;
 }
 
 .enemy__image {
@@ -136,7 +136,7 @@ body {
   flex-direction: column;
   width: 400px;
   height: 400px;
-  margin: 150px auto 0;
+  margin: 100px auto 0;
   padding: 15px;
   align-items: center;
   justify-content: center;
@@ -145,6 +145,26 @@ body {
   color: rgb(157, 202, 34);
   background-color: rgb(95, 88, 88);
   opacity: 0.7;
+  border: 5px solid rgb(157, 202, 34);
+  border-radius: 10px;
+}
+
+.modal{
+  display: flex;
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+  flex-direction: column;
+  width: 500px;
+  height: 500px;
+  margin: 10px auto 0;
+  padding: 15px;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: rgb(157, 202, 34);
+  background-color: rgb(95, 88, 88);
   border: 5px solid rgb(157, 202, 34);
   border-radius: 10px;
 }

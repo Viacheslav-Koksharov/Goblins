@@ -10,7 +10,7 @@
 
 ## Play
 
-<p>Click on the link to play the game - <a href="https://https://viacheslav-koksharov.github.io/goblins/" target="_blank">Goblins.</a></p>
+<p>Click on the link to play the game - <a href="https://viacheslav-koksharov.github.io/goblins/" target="_blank">Goblins.</a></p>
 
 ## Install locally
 
